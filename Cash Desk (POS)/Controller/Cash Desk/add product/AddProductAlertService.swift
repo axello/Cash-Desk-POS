@@ -10,7 +10,7 @@ import UIKit
 
 class AddProductAlertService {
     
-    func alert() -> AddProductsViewController {
+    static func alert() -> AddProductsViewController {
         
         let storyboard = UIStoryboard(name: "AddProductsView", bundle: .main)
         

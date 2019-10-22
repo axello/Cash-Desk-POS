@@ -124,10 +124,10 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Buttons methods
     @IBAction func AddProductsBarButton(_ sender: UIBarButtonItem) {
         
-        let alertVC = AddProductAlertService.alert(self)
+        let alertVC = AddProductAlertService.alert()
         
         present(alertVC, animated: true, completion: {
-            self.loadData()
+//            self.loadData()
             
         })
     }

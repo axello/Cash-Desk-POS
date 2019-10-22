@@ -179,8 +179,8 @@
                                                                     <constraint firstAttribute="height" constant="30" id="Kl1-wM-7j0"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="z0i-eV-C6Y"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <color key="textColor" name="DarkBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kZ-RC-o0a">
@@ -195,8 +195,8 @@
                                                                     <constraint firstAttribute="height" constant="30" id="dgO-dZ-LOf"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="kOF-to-iSg"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <color key="textColor" name="DarkBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>

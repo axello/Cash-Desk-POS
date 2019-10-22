@@ -62,11 +62,19 @@
 			isa = PBXGroup;
 			children = (
 				6EC3A77C232EBD6200607514 /* CashDeskViewController.swift */,
+				6E9E92BD235F8165001E4CB4 /* add product */,
+			);
+			path = "Cash Desk";
+			sourceTree = "<group>";
+		};
+		6E9E92BD235F8165001E4CB4 /* add product */ = {
+			isa = PBXGroup;
+			children = (
 				6E150E9C234B9C0C00ED2661 /* AddProductAlertService.swift */,
 				6E150E9E234B9C5B00ED2661 /* AddProductsView.storyboard */,
 				6E150EA0234B9C9C00ED2661 /* AddProductsViewController.swift */,
 			);
-			path = "Cash Desk";
+			path = "add product";
 			sourceTree = "<group>";
 		};
 		6EC3A76C232EBD6200607514 = {

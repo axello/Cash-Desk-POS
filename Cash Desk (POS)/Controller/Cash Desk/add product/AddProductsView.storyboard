@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Products View Controller-->
+        <scene sceneID="tJ4-TC-Ljq">
+            <objects>
+                <viewController storyboardIdentifier="addProductsAlertVC" modalTransitionStyle="crossDissolve" id="ud4-Ub-nwc" customClass="AddProductsViewController" customModule="POS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ij-Ee-GHD">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWE-YB-Fdi">
+                                <rect key="frame" x="243.5" y="55" width="537" height="658"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOH-C9-7xN" userLabel="text field View">
+                                        <rect key="frame" x="50" y="88.5" width="437" height="65"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-7O-5OR">
+                                                <rect key="frame" x="8" y="15.5" width="421" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="RQG-12-JWg"/>
+                                                    <constraint firstAttribute="width" constant="421" id="qWC-dE-4TO"/>
+                                                </constraints>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="437" id="BAk-6H-DFu"/>
+                                            <constraint firstItem="gaH-7O-5OR" firstAttribute="centerX" secondItem="iOH-C9-7xN" secondAttribute="centerX" id="VmV-0I-A2L"/>
+                                            <constraint firstAttribute="height" constant="65" id="lZE-fB-7OE"/>
+                                            <constraint firstItem="gaH-7O-5OR" firstAttribute="centerY" secondItem="iOH-C9-7xN" secondAttribute="centerY" id="zvJ-Bl-fj4"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ad5-CM-UE6">
+                                        <rect key="frame" x="50" y="203.5" width="437" height="414.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-wc-Xq2">
+                                                <rect key="frame" x="0.0" y="0.0" width="437" height="65"/>
+                                                <color key="backgroundColor" name="WhiteIsh"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="437" id="0l7-Wh-CiW"/>
+                                                    <constraint firstAttribute="height" constant="65" id="jRj-8k-iFf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-eX-5sf">
+                                                <rect key="frame" x="0.0" y="95" width="437" height="86.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4go-3F-VeE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="7AQ-9R-imM"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="D6N-ED-TYN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="7">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="QcS-wh-olE"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDN-4K-Ms0">
+                                                        <rect key="frame" x="110.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="86.5" id="79K-Eq-a4e"/>
+                                                            <constraint firstAttribute="width" constant="105.5" id="jEr-8q-QHu"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="8">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="aIA-Pl-hUh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFL-R7-5aQ">
+                                                        <rect key="frame" x="221" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="86.5" id="1L3-94-mHU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="9">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="SIc-UD-pa9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-sS-tgr">
+                                                        <rect key="frame" x="331.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="4T6-sR-hhd"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="Wpx-Al-jLC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="←">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="zfo-uu-LOa"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="4go-3F-VeE" firstAttribute="height" secondItem="SDN-4K-Ms0" secondAttribute="height" id="0KE-wN-wKw"/>
+                                                    <constraint firstAttribute="width" constant="437" id="18b-TD-Mq7"/>
+                                                    <constraint firstAttribute="height" constant="86.5" id="Oih-0a-8ZJ"/>
+                                                    <constraint firstItem="4go-3F-VeE" firstAttribute="width" secondItem="SDN-4K-Ms0" secondAttribute="width" id="Otu-57-C1B"/>
+                                                    <constraint firstItem="EFL-R7-5aQ" firstAttribute="width" secondItem="SDN-4K-Ms0" secondAttribute="width" id="WJi-v3-1en"/>
+                                                    <constraint firstItem="EFL-R7-5aQ" firstAttribute="height" secondItem="SDN-4K-Ms0" secondAttribute="height" id="XRh-Op-B73"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vsh-dj-Zpz">
+                                                <rect key="frame" x="0.0" y="211.5" width="437" height="86.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXo-kL-NWv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="86.5" id="919-IN-KU0"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="4">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="LsH-ji-BZW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-4Q-S8U">
+                                                        <rect key="frame" x="110.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="AQ3-GT-Jro"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="B1E-pi-7ka"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="5">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="ZrQ-vW-NMB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1g-uo-u37">
+                                                        <rect key="frame" x="221" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="2jD-Uc-pVJ"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="7LD-Uz-zjv"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="6">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="iQz-YE-EzW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSw-7C-rnK">
+                                                        <rect key="frame" x="331.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="SKz-2h-aQt"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="iuH-rN-hWa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="0">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="HPN-ea-YLN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" name="WhiteIsh"/>
+                                                <constraints>
+                                                    <constraint firstItem="uSw-7C-rnK" firstAttribute="height" secondItem="IiU-4Q-S8U" secondAttribute="height" id="0AD-uK-vZc"/>
+                                                    <constraint firstAttribute="width" constant="437" id="5wL-F3-9ns"/>
+                                                    <constraint firstItem="BXo-kL-NWv" firstAttribute="width" secondItem="IiU-4Q-S8U" secondAttribute="width" id="AM2-s6-VMV"/>
+                                                    <constraint firstItem="BXo-kL-NWv" firstAttribute="height" secondItem="IiU-4Q-S8U" secondAttribute="height" id="IdH-n8-0xw"/>
+                                                    <constraint firstItem="uSw-7C-rnK" firstAttribute="width" secondItem="IiU-4Q-S8U" secondAttribute="width" id="L9R-K8-y1g"/>
+                                                    <constraint firstItem="s1g-uo-u37" firstAttribute="width" secondItem="IiU-4Q-S8U" secondAttribute="width" id="PCh-Hk-C7h"/>
+                                                    <constraint firstAttribute="height" constant="86.5" id="qKe-6J-dLT"/>
+                                                    <constraint firstItem="s1g-uo-u37" firstAttribute="height" secondItem="IiU-4Q-S8U" secondAttribute="height" id="wDi-4H-eQK"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-7J-rMB">
+                                                <rect key="frame" x="0.0" y="328" width="437" height="86.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-hO-Iq4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="86.5" id="O2G-yd-EYP"/>
+                                                            <constraint firstAttribute="width" constant="105.5" id="TGi-Zg-Ige"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="1">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="jt3-q9-hGD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyV-ja-Mdt">
+                                                        <rect key="frame" x="110.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="0tE-IA-oRO"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="3ck-Td-2pQ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="2">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="fJt-y9-gGS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SD-LE-ZJZ">
+                                                        <rect key="frame" x="221" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="86.5" id="VfE-FZ-ulo"/>
+                                                            <constraint firstAttribute="width" constant="105.5" id="z4Q-9X-hGV"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="3">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="eVo-9o-eyx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNG-ig-Zje">
+                                                        <rect key="frame" x="331.5" y="0.0" width="105.5" height="86.5"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="105.5" id="N34-x1-EDV"/>
+                                                            <constraint firstAttribute="height" constant="86.5" id="vWQ-eM-AN9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="⏎">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="dsU-U8-7JU"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" name="WhiteIsh"/>
+                                                <constraints>
+                                                    <constraint firstItem="iKf-hO-Iq4" firstAttribute="height" secondItem="UyV-ja-Mdt" secondAttribute="height" id="L5E-4J-diS"/>
+                                                    <constraint firstItem="7SD-LE-ZJZ" firstAttribute="width" secondItem="UyV-ja-Mdt" secondAttribute="width" id="MUn-qw-h7O"/>
+                                                    <constraint firstAttribute="height" constant="86.5" id="W7c-rB-6FN"/>
+                                                    <constraint firstItem="iKf-hO-Iq4" firstAttribute="width" secondItem="UyV-ja-Mdt" secondAttribute="width" id="eDW-Ev-tNy"/>
+                                                    <constraint firstAttribute="width" constant="437" id="gyJ-mi-eFY"/>
+                                                    <constraint firstItem="7SD-LE-ZJZ" firstAttribute="height" secondItem="UyV-ja-Mdt" secondAttribute="height" id="xK4-04-7bm"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ZFA-7J-rMB" firstAttribute="width" secondItem="9oI-eX-5sf" secondAttribute="width" id="Afv-Qb-hzJ"/>
+                                            <constraint firstItem="vsh-dj-Zpz" firstAttribute="width" secondItem="9oI-eX-5sf" secondAttribute="width" id="IVf-5K-eg9"/>
+                                            <constraint firstItem="vsh-dj-Zpz" firstAttribute="height" secondItem="9oI-eX-5sf" secondAttribute="height" id="TXg-es-P9s"/>
+                                            <constraint firstItem="ZFA-7J-rMB" firstAttribute="height" secondItem="9oI-eX-5sf" secondAttribute="height" id="xAX-5d-LMx"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBlue"/>
+                                <constraints>
+                                    <constraint firstItem="iOH-C9-7xN" firstAttribute="centerX" secondItem="KWE-YB-Fdi" secondAttribute="centerX" id="2ri-kT-Sx6"/>
+                                    <constraint firstItem="iOH-C9-7xN" firstAttribute="leading" secondItem="KWE-YB-Fdi" secondAttribute="leading" constant="50" id="BF4-PN-ihC"/>
+                                    <constraint firstAttribute="width" constant="537" id="EdB-bZ-1kU"/>
+                                    <constraint firstAttribute="trailing" secondItem="iOH-C9-7xN" secondAttribute="trailing" constant="50" id="QwN-Cv-47P"/>
+                                    <constraint firstItem="Ad5-CM-UE6" firstAttribute="centerX" secondItem="KWE-YB-Fdi" secondAttribute="centerX" id="XQI-OO-1JU"/>
+                                    <constraint firstAttribute="height" constant="658" id="bZR-jL-GTE"/>
+                                    <constraint firstItem="Ad5-CM-UE6" firstAttribute="top" secondItem="iOH-C9-7xN" secondAttribute="bottom" constant="50" id="fIt-p9-vDo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ad5-CM-UE6" secondAttribute="bottom" constant="40" id="hq2-cd-qke"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20716502568493156" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KWE-YB-Fdi" firstAttribute="centerX" secondItem="7ij-Ee-GHD" secondAttribute="centerX" id="7oB-Xx-UhZ"/>
+                            <constraint firstItem="KWE-YB-Fdi" firstAttribute="centerY" secondItem="7ij-Ee-GHD" secondAttribute="centerY" id="bee-Um-K0f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MC7-nw-TSB"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgourndView" destination="KWE-YB-Fdi" id="hFk-MW-4SE"/>
+                        <outlet property="priceLabel" destination="cAI-wc-Xq2" id="sjG-Tm-KaB"/>
+                        <outlet property="productNameTextField" destination="gaH-7O-5OR" id="mhN-SO-4Aj"/>
+                        <outletCollection property="Buttons" destination="4go-3F-VeE" collectionClass="NSMutableArray" id="Z5z-9m-pNC"/>
+                        <outletCollection property="Buttons" destination="SDN-4K-Ms0" collectionClass="NSMutableArray" id="ksW-hQ-jfV"/>
+                        <outletCollection property="Buttons" destination="EFL-R7-5aQ" collectionClass="NSMutableArray" id="Vzw-ue-Dcv"/>
+                        <outletCollection property="Buttons" destination="BXo-kL-NWv" collectionClass="NSMutableArray" id="INp-SS-tUk"/>
+                        <outletCollection property="Buttons" destination="IiU-4Q-S8U" collectionClass="NSMutableArray" id="5mO-Mx-8n4"/>
+                        <outletCollection property="Buttons" destination="s1g-uo-u37" collectionClass="NSMutableArray" id="f24-VY-fWn"/>
+                        <outletCollection property="Buttons" destination="uSw-7C-rnK" collectionClass="NSMutableArray" id="XrG-9f-kGq"/>
+                        <outletCollection property="Buttons" destination="iKf-hO-Iq4" collectionClass="NSMutableArray" id="eG5-Z8-I5M"/>
+                        <outletCollection property="Buttons" destination="UyV-ja-Mdt" collectionClass="NSMutableArray" id="LHD-0M-5BG"/>
+                        <outletCollection property="Buttons" destination="7SD-LE-ZJZ" collectionClass="NSMutableArray" id="zFS-YP-aLO"/>
+                        <outletCollection property="Buttons" destination="kNG-ig-Zje" collectionClass="NSMutableArray" id="IJJ-jO-D1x"/>
+                        <outletCollection property="Buttons" destination="DPI-sS-tgr" collectionClass="NSMutableArray" id="7nx-pR-gGJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zjp-Jy-XZN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.1875" y="103.90625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="DarkBlue">
+            <color red="0.027000000700354576" green="0.40799999237060547" blue="0.62400001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteIsh">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBlue">
+            <color red="0.63499999046325684" green="0.83499997854232788" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

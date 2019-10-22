@@ -13,6 +13,7 @@ class AddProductsViewController: UIViewController {
     
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var backgourndView: UIView!
+    @IBOutlet weak var productNameTextField: UITextField!
     
     
     @IBOutlet var Buttons: [UIButton]!
@@ -27,7 +28,8 @@ class AddProductsViewController: UIViewController {
             $0.backgroundColor = Color.POSBlue
             $0.layer.borderWidth = 5
             $0.layer.borderColor = Color.POSWhite.cgColor
-            $0.tintColor = Color.POSOrange
+            
+            $0.setTitleColor(Color.POSOrange, for: .normal)
         }
         
     }
