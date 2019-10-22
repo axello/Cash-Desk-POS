@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="allProductsCell" id="Dcg-wb-oco" customClass="AllProductsCollectionViewCell" customModule="POS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="179" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3E0-dI-jIm">
+                <rect key="frame" x="0.0" y="0.0" width="179" height="170"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMG-mh-hDW">
+                        <rect key="frame" x="0.0" y="0.0" width="179" height="170"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="170" id="BzL-vN-o9U"/>
+                            <constraint firstAttribute="width" constant="179" id="uob-a2-mse"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNV-ja-d4s">
+                        <rect key="frame" x="0.0" y="0.0" width="179" height="170"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="a7T-ws-kRl">
+                                <rect key="frame" x="8" y="34" width="163" height="102"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 sep 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vs4-XC-M2F">
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="163" id="T17-gN-DFn"/>
+                                            <constraint firstAttribute="height" constant="40" id="bn1-wM-jDD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€ 10000.000,22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="5MX-sr-rOf">
+                                        <rect key="frame" x="0.0" y="62" width="163" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="163" id="6xu-lX-SCK"/>
+                                            <constraint firstAttribute="height" constant="40" id="CxI-HY-d4S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5MX-sr-rOf" firstAttribute="width" secondItem="vs4-XC-M2F" secondAttribute="width" id="dg9-s9-jZ6"/>
+                                    <constraint firstItem="5MX-sr-rOf" firstAttribute="height" secondItem="vs4-XC-M2F" secondAttribute="height" id="sJ9-6r-nic"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="170" id="GwL-Xb-FLN"/>
+                            <constraint firstItem="a7T-ws-kRl" firstAttribute="centerX" secondItem="jNV-ja-d4s" secondAttribute="centerX" id="KHO-Rm-GYf"/>
+                            <constraint firstItem="a7T-ws-kRl" firstAttribute="centerY" secondItem="jNV-ja-d4s" secondAttribute="centerY" id="xNJ-vn-2Ch"/>
+                            <constraint firstAttribute="width" constant="179" id="yvi-ee-kii"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CMG-mh-hDW" firstAttribute="top" secondItem="3E0-dI-jIm" secondAttribute="top" id="1zW-oa-mwu"/>
+                    <constraint firstAttribute="trailing" secondItem="CMG-mh-hDW" secondAttribute="trailing" id="FUm-Ti-s8T"/>
+                    <constraint firstItem="CMG-mh-hDW" firstAttribute="leading" secondItem="3E0-dI-jIm" secondAttribute="leading" id="K66-ML-rsT"/>
+                    <constraint firstAttribute="trailing" secondItem="jNV-ja-d4s" secondAttribute="trailing" id="N1a-8s-llD"/>
+                    <constraint firstAttribute="bottom" secondItem="CMG-mh-hDW" secondAttribute="bottom" id="OHO-xs-hcT"/>
+                    <constraint firstItem="jNV-ja-d4s" firstAttribute="leading" secondItem="3E0-dI-jIm" secondAttribute="leading" id="ThI-6T-J7y"/>
+                    <constraint firstAttribute="bottom" secondItem="jNV-ja-d4s" secondAttribute="bottom" id="dkU-Ro-BTo"/>
+                    <constraint firstItem="jNV-ja-d4s" firstAttribute="top" secondItem="3E0-dI-jIm" secondAttribute="top" id="eRa-gJ-8XQ"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="189" height="178"/>
+            <connections>
+                <outlet property="BackgroundViews" destination="jNV-ja-d4s" id="1Uf-Jo-pAg"/>
+                <outlet property="priceLabel" destination="5MX-sr-rOf" id="h6C-OB-YXd"/>
+                <outlet property="productNameLabel" destination="vs4-XC-M2F" id="DgI-Le-dim"/>
+                <outlet property="shadowView" destination="CMG-mh-hDW" id="n7K-l9-rlz"/>
+            </connections>
+            <point key="canvasLocation" x="-184.78260869565219" y="342.1875"/>
+        </collectionViewCell>
+    </objects>
+</document>
