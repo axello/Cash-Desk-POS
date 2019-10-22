@@ -23,9 +23,8 @@ class AddProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-        backgourndView.backgroundColor = Color.POSLightBlue
         
+        backgourndView.backgroundColor = Color.POSLightBlue
         ButtonsSetUp()
         
     }

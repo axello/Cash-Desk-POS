@@ -137,6 +137,11 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         })
     }
     
+    fileprivate func resetCalcButtonNumberAndLabel() {
+        calcButtonsNumber = ""
+        calcButtonsTextLabel.text = "0.0"
+    }
+    
     @IBAction func CalcButtonsPressed(_ sender: UIButton) {
 
         switch sender.currentTitle {
@@ -173,13 +178,13 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         case "⏎":
             print("⏎")
             if discountOrCustomPrise.isOn == true {
-                testDataForTableViewCell.insert(testTableViewCellData(amount: "1 x", price: calcButtonsTextLabel.text ?? "problems on line 164", name: "Custom product"), at: 0)
+                testDataForTableViewCell.insert(testTableViewCellData(amount: "1 x", price: calcButtonsTextLabel.text ?? "problems on line 176", name: "Custom product"), at: 0)
                 
-                calcButtonsNumber = ""
+                resetCalcButtonNumberAndLabel()
                 TableView.reloadData()
             } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 176")) %")
-                calcButtonsNumber = ""
+                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 181")) %")
+                resetCalcButtonNumberAndLabel()
             }
         case "←":
             print("←")
