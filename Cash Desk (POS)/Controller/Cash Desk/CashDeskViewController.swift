@@ -10,7 +10,7 @@ import UIKit
 
 
 struct testColectionViewCellData {
-    let  date: String
+    let  productName: String
     let price: String
 }
 struct testTableViewCellData {
@@ -27,7 +27,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-
+    //MARK: - outlets
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var allProductsColectionView: UICollectionView!
     @IBOutlet var CalcButtons: [UIButton]!
@@ -38,17 +38,19 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var mainBackgroundView: UIView!
+    
+    //MARK: - test data for colection and table view's
     var testDataForCelcetionCell = [
-        testColectionViewCellData(date: "19 sep 2019", price: "51.46"),
-        testColectionViewCellData(date: "20 sep 2019", price: "51.46"),
-        testColectionViewCellData(date: "21 sep 2019", price: "51.46"),
-        testColectionViewCellData(date: "22 sep 2019", price: "52.06"),
-        testColectionViewCellData(date: "23 sep 2019", price: "53.06"),
-        testColectionViewCellData(date: "24 sep 2019", price: "55.06"),
-        testColectionViewCellData(date: "24 sep 2019", price: "55.06"),
-        testColectionViewCellData(date: "25 sep 2019", price: "24.58"),
-        testColectionViewCellData(date: "26 sep 2019", price: "10.50"),
-        testColectionViewCellData(date: "27 sep 2019", price: "75.99")
+        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
+        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
+        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
+        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
+        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
+        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
+        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
+        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
+        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
+        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
     ]
     var testDataForTableViewCell = [
         testTableViewCellData(amount: "25", price: "51.46", name: "potato"),
@@ -63,14 +65,19 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         testTableViewCellData(amount: "25", price: "75.99", name: "stake")
         
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         TableViewSetUp()
-         ColectionViewSetUp()
-        
-        
+        TableViewSetUp()
+        ColectionViewSetUp()
+        backgroundViewsSetUp()
+        buttonsSetUp()
+    }
+    
+    //MARK: - View SetUp methods
+    
+    fileprivate func backgroundViewsSetUp() {
         // setting backgroundViews layout
         backgroundViews.forEach {
             $0.layer.cornerRadius    = 20
@@ -78,7 +85,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         mainBackgroundView.backgroundColor = Color.POSLightBlue
-        
+    }
+    fileprivate func buttonsSetUp() {
         // setting calc buttons layout
         CalcButtons.forEach {
             $0.layer.borderWidth     = 5
@@ -87,9 +95,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
             $0.layer.backgroundColor = Color.POSLightBlue.cgColor
         }
     }
-    
-    //MARK: - View SetUp methods
-    func TableViewSetUp() {
+    fileprivate func TableViewSetUp() {
         // setting table view designs
         TableView.backgroundColor     =  Color.POSLightBlue
         TableView.layer.cornerRadius  = 25
@@ -103,8 +109,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
         TableView.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
     }
-    
-    func ColectionViewSetUp() {
+    fileprivate func ColectionViewSetUp() {
         // setting colectionView designs
         allProductsColectionView.backgroundColor    =  Color.POSLightBlue
         allProductsColectionView.layer.cornerRadius = 25
@@ -121,7 +126,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         allProductsColectionView.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
     
-    // MARK: - Buttons methods
+    // MARK: - IBAction methods
     @IBAction func AddProductsBarButton(_ sender: UIBarButtonItem) {
         
         let alertVC = AddProductAlertService.alert()
@@ -173,7 +178,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
                 calcButtonsNumber = ""
                 TableView.reloadData()
             } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 166")) %")
+                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 176")) %")
                 calcButtonsNumber = ""
             }
         case "←":
@@ -187,7 +192,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    // MARK: - Table View data source and delegate
+    // MARK: - Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testDataForTableViewCell.count
     }
@@ -195,8 +200,9 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! ShoppingCartTableViewCell
         
-        cell.setUpCell(productName: testDataForTableViewCell[indexPath.row].name, amount: testDataForTableViewCell[indexPath.row].amount, price: testDataForTableViewCell[indexPath.row].price)
+        cell.setUpCell(productName: testDataForTableViewCell[indexPath.row].name, amount: testDataForTableViewCell[indexPath.row].amount, price: "€ \(testDataForTableViewCell[indexPath.row].price)")
         cell.selectionStyle = .default
+        
         if cell.isSelected == true {
             cell.designSetUp( backgroundColor: Color.POSOrange)
         } else {
@@ -209,7 +215,9 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = TableView.cellForRow(at: indexPath) as? ShoppingCartTableViewCell
         cell?.designSetUp( backgroundColor: Color.POSOrange)
-        let alert = UIAlertController(title: "Tableview row number: \(indexPath.row)", message: "product name: \(testDataForTableViewCell[indexPath.row].name)", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Tableview row number: \(indexPath.row + 1)", message: "product name: \(testDataForTableViewCell[indexPath.row].name)", preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "Ok", style: .cancel) { (AlertAction) in
             self.TableView.deselectRow(at: indexPath, animated: true)
             cell?.designSetUp(backgroundColor: Color.POSBlue)
@@ -222,7 +230,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         print("cell selected at\(indexPath.row)")
     }
 
-    // MARK: - Colection View View data source and delegate
+    
+    // MARK: - Colection View Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return testDataForCelcetionCell.count
     }
@@ -230,16 +239,11 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allProductsCell", for: indexPath) as! AllProductsCollectionViewCell
         
-        cell.setUpCell(date: testDataForCelcetionCell[indexPath.row].date, price: testDataForCelcetionCell[indexPath.row].price)
+        cell.setUpCell(productName: testDataForCelcetionCell[indexPath.row].productName, price: testDataForCelcetionCell[indexPath.row].price)
         
         
         return cell
         
     }
-    
-    
-    
-    
-    
-}
 
+}

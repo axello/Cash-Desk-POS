@@ -26,8 +26,8 @@ class AllProductsCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func setUpCell(date: String, price: String) {
-        productNameLabel.text = date
+    func setUpCell(productName: String, price: String) {
+        productNameLabel.text = productName
         priceLabel.text       = price
         
         self.layer.cornerRadius    = 40
