@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddProductsViewController: UIViewController {
     
@@ -17,12 +18,16 @@ class AddProductsViewController: UIViewController {
         }
     }
     
+    var allProductsArray = [AllProducts]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   
+    
+   
     
     //MARK: - outlets
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var backgourndView: UIView!
     @IBOutlet weak var productNameTextField: UITextField!
-    
     @IBOutlet var Buttons: [UIButton]!
     
     
@@ -41,12 +46,9 @@ class AddProductsViewController: UIViewController {
             $0.backgroundColor = Color.POSBlue
             $0.layer.borderWidth = 5
             $0.layer.borderColor = Color.POSWhite.cgColor
-            
             $0.setTitleColor(Color.POSOrange, for: .normal)
         }
     }
-
-    
 
     @IBAction func calcButtonsFunc(_ sender: UIButton) {
 
@@ -84,7 +86,7 @@ class AddProductsViewController: UIViewController {
             calcButtonsNumber.append("9")
         case "⏎":
             print("⏎")
-            checkIfUserCanAddProduct()
+            addProduct()
         case "←":
             print("←")
             calcButtonsNumber = String(calcButtonsNumber.dropLast())
@@ -105,33 +107,57 @@ class AddProductsViewController: UIViewController {
         
     }
     
-    func checkIfUserCanAddProduct() {//}-> Bool {
-//        if || calcButtonsNumber.isEmpty || calcButtonsNumber == "0" || (Double(calcButtonsNumber) != nil)  {
-//            return false
-//        } else {
-//            return true
-//        }
+    /// check if all the required field are filled in to save to core data DB, after that is added the data to the db
+    func addProduct() {
         if productNameTextField.text == "" {
             Alert.showEmptyProductNameTextField(on: self)
-//            return false
         }
         else if calcButtonsNumber.isEmpty || calcButtonsNumber == "0" {
 
             guard Double(calcButtonsNumber) == nil else { return Alert.showInvalidNumberForPrice(on: self)}
             Alert.showInvalidNumberForPrice(on: self)
-////            return false
         }
          else if let calcDouble = calcButtonsNumber.doubleValue {
             print(calcDouble)
             Alert.showInvalidNumberForPrice(on: self)
             
         } else {
+            
+            let newProduct = AllProducts(context: self.context)
+            newProduct.productName = productNameTextField.text
+            newProduct.productPrice = calcButtonsNumber
+            
+            save()
+            
             self.dismiss(animated: true, completion: nil)
-//            return true
+            
         }
         
         
     }
+    
+//    MARK: - data methods
+    
+    func loadData(){
+           let request: NSFetchRequest<AllProducts> = AllProducts.fetchRequest()
+           do {
+               allProductsArray = try context.fetch(request)
+           } catch {
+               print("error Loading data: \(error)")
+           }
+           //tableView.reloadData()
+           print("tableView Reloaded")
+       }
+       
+       func save() {
+           do {
+               try context.save()
+           }
+           catch {
+               print("error saving data: \(error)")
+           }
+//           loadData()
+       }
     
 }
 
