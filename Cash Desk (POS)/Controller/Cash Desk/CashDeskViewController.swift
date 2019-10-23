@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 struct testColectionViewCellData {
@@ -18,7 +19,12 @@ struct testTableViewCellData {
     let  price: String
     let   name: String
 }
+
+
 class CashDeskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var calcButtonsNumber: String = "" {
         didSet {
@@ -26,6 +32,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
             print("\(String(describing: calcButtonsTextLabel.text!))")
         }
     }
+    
+    var allProductsArray = [AllProducts]()
     
     //MARK: - outlets
     @IBOutlet weak var TableView: UITableView!
@@ -40,18 +48,18 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var mainBackgroundView: UIView!
     
     //MARK: - test data for colection and table view's
-    var testDataForCelcetionCell = [
-        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
-        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
-        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
-        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
-        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
-        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
-        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
-        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
-        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
-        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
-    ]
+//    var testDataForCelcetionCell = [
+//        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
+//        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
+//        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
+//        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
+//        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
+//        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
+//        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
+//        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
+//        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
+//        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
+//    ]
     var testDataForTableViewCell = [
         testTableViewCellData(amount: "25", price: "51.46", name: "potato"),
         testTableViewCellData(amount: "25", price: "51.46", name: "beaf"),
@@ -73,6 +81,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         ColectionViewSetUp()
         backgroundViewsSetUp()
         buttonsSetUp()
+        loadData()
     }
     
     //MARK: - View SetUp methods
@@ -126,22 +135,38 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         allProductsColectionView.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
     
-    // MARK: - IBAction methods
-    @IBAction func AddProductsBarButton(_ sender: UIBarButtonItem) {
-        
-        let alertVC = AddProductAlertService.alert()
-        
-        present(alertVC, animated: true, completion: {
-//            self.loadData()
-            
-        })
-    }
+   
     
     fileprivate func resetCalcButtonNumberAndLabel() {
         calcButtonsNumber = ""
         calcButtonsTextLabel.text = "0.0"
     }
     
+    
+    //MARK: - data methods
+    
+    func loadData(){
+        let request: NSFetchRequest<AllProducts> = AllProducts.fetchRequest()
+        do {
+            allProductsArray = try context.fetch(request)
+        } catch {
+            print("error Loading data: \(error)")
+        }
+        //tableView.reloadData()
+        print("tableView Reloaded")
+    }
+    
+    func save() {
+        do {
+            try context.save()
+        }
+        catch {
+            print("error saving data: \(error)")
+        }
+        loadData()
+    }
+    
+    // MARK: - button pressed methods
     @IBAction func CalcButtonsPressed(_ sender: UIButton) {
 
         switch sender.currentTitle {
@@ -178,12 +203,12 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         case "⏎":
             print("⏎")
             if discountOrCustomPrise.isOn == true {
-                testDataForTableViewCell.insert(testTableViewCellData(amount: "1 x", price: calcButtonsTextLabel.text ?? "problems on line 176", name: "Custom product"), at: 0)
+                testDataForTableViewCell.insert(testTableViewCellData(amount: "1 x", price: calcButtonsTextLabel.text ?? "problems on line 189", name: "Custom product"), at: 0)
                 
                 resetCalcButtonNumberAndLabel()
                 TableView.reloadData()
             } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 181")) %")
+                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 194")) %")
                 resetCalcButtonNumberAndLabel()
             }
         case "←":
@@ -195,6 +220,16 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         case .some(_):
             print(".some")
         }
+    }
+    
+    @IBAction func AddProductsBarButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let alertVC = AddProductAlertService.alert()
+        
+        present(alertVC, animated: true, completion: {
+            //            self.loadData()
+            
+        })
     }
     
     // MARK: - Table View Methods
@@ -238,14 +273,13 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Colection View Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testDataForCelcetionCell.count
+        return allProductsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allProductsCell", for: indexPath) as! AllProductsCollectionViewCell
         
-        cell.setUpCell(productName: testDataForCelcetionCell[indexPath.row].productName, price: testDataForCelcetionCell[indexPath.row].price)
-        
+        cell.setUpCell(productName: allProductsArray[indexPath.row].productName ?? "problem by productName", price: allProductsArray[indexPath.row].productPrice ?? "problems by productPrice")
         
         return cell
         

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,26 +13,26 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CashDeskViewController" customModule="POS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1V6-Od-WGl">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Cash Desk" id="zAX-Wn-fFc">
                                         <barButtonItem key="rightBarButtonItem" title="Add Product" id="PlU-oE-BNr">
                                             <connections>
-                                                <action selector="AddProductsBarButton:" destination="9pv-A4-QxB" id="CzP-R9-QwO"/>
+                                                <action selector="AddProductsBarButtonPressed:" destination="9pv-A4-QxB" id="CzP-R9-QwO"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HE9-WH-ylZ">
-                                <rect key="frame" x="12" y="62" width="490" height="335"/>
+                                <rect key="frame" x="12" y="56" width="490" height="173"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-zJ-RRj">
-                                        <rect key="frame" x="12" y="12" width="466" height="311"/>
+                                        <rect key="frame" x="12" y="12" width="466" height="149"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="78" id="BdS-lg-tJc" customClass="ShoppingCartTableViewCell" customModule="POS" customModuleProvider="target">
@@ -92,10 +90,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0u-Hd-x5M">
-                                <rect key="frame" x="522" y="62" width="490" height="656"/>
+                                <rect key="frame" x="522" y="56" width="66" height="495"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wLq-LY-ifv">
-                                        <rect key="frame" x="12" y="12" width="466" height="632"/>
+                                        <rect key="frame" x="12" y="12" width="42" height="471"/>
                                         <color key="backgroundColor" name="lightBlue"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YPe-lg-TLI">
                                             <size key="itemSize" width="130" height="107"/>
@@ -105,7 +103,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="allProductsCell" id="9UZ-Kq-sLi" customClass="AllProductsCollectionViewCell" customModule="POS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="200"/>
+                                                <rect key="frame" x="-83.5" y="0.0" width="209" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="t6j-QM-tTZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="209" height="200"/>
@@ -151,10 +149,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-06-QXz">
-                                <rect key="frame" x="12" y="405" width="490" height="313"/>
+                                <rect key="frame" x="12" y="237" width="490" height="314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nd1-Wn-iET">
-                                        <rect key="frame" x="26.5" y="6" width="437" height="298.5"/>
+                                        <rect key="frame" x="26.5" y="6.5" width="437" height="298.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-Zj-oHg">
                                                 <rect key="frame" x="0.0" y="0.0" width="437" height="30"/>
@@ -495,17 +493,17 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="POS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Sold items" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="431.5" y="362.5" width="161" height="43"/>
+                                <rect key="frame" x="219.5" y="278.5" width="161" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="464.5" y="413.5" width="95" height="17"/>
+                                <rect key="frame" x="252.5" y="329.5" width="95" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
