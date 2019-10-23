@@ -13,6 +13,7 @@
 		6E150EA1234B9C9C00ED2661 /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E150EA0234B9C9C00ED2661 /* AddProductsViewController.swift */; };
 		6E58C9EE2332BA5600673DFF /* AllProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58C9ED2332BA5600673DFF /* AllProductsCollectionViewCell.swift */; };
 		6E9E92BF23604636001E4CB4 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E92BE23604636001E4CB4 /* Alerts.swift */; };
+		6E9E92C12360539C001E4CB4 /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E92C02360539B001E4CB4 /* String Extension.swift */; };
 		6EC3A779232EBD6200607514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A778232EBD6200607514 /* AppDelegate.swift */; };
 		6EC3A77D232EBD6200607514 /* CashDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A77C232EBD6200607514 /* CashDeskViewController.swift */; };
 		6EC3A77F232EBD6200607514 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A77E232EBD6200607514 /* SecondViewController.swift */; };
@@ -33,6 +34,7 @@
 		6E150EA0234B9C9C00ED2661 /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
 		6E58C9ED2332BA5600673DFF /* AllProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E9E92BE23604636001E4CB4 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		6E9E92C02360539B001E4CB4 /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
 		6EC3A775232EBD6200607514 /* POS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC3A778232EBD6200607514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EC3A77C232EBD6200607514 /* CashDeskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashDeskViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				6EC3A77E232EBD6200607514 /* SecondViewController.swift */,
 				6EE3F2DB2337A3F200FBA8E2 /* enum's.swift */,
 				6E9E92BE23604636001E4CB4 /* Alerts.swift */,
+				6E9E92C02360539B001E4CB4 /* String Extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				6E150E9A234A693900ED2661 /* testFile.swift in Sources */,
 				6E58C9EE2332BA5600673DFF /* AllProductsCollectionViewCell.swift in Sources */,
 				6E150E9D234B9C0C00ED2661 /* AddProductAlertService.swift in Sources */,
+				6E9E92C12360539C001E4CB4 /* String Extension.swift in Sources */,
 				6EC3A77F232EBD6200607514 /* SecondViewController.swift in Sources */,
 				6EC3A77D232EBD6200607514 /* CashDeskViewController.swift in Sources */,
 				6EC3A785232EBD6200607514 /* Cash_Desk__POS_.xcdatamodeld in Sources */,
