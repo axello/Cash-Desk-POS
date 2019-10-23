@@ -84,7 +84,7 @@ class AddProductsViewController: UIViewController {
             calcButtonsNumber.append("9")
         case "⏎":
             print("⏎")
-            self.dismiss(animated: true, completion: nil)
+            checkIfUserCanAddProduct()
         case "←":
             print("←")
             calcButtonsNumber = String(calcButtonsNumber.dropLast())
@@ -105,5 +105,47 @@ class AddProductsViewController: UIViewController {
         
     }
     
+    func checkIfUserCanAddProduct() {//}-> Bool {
+//        if || calcButtonsNumber.isEmpty || calcButtonsNumber == "0" || (Double(calcButtonsNumber) != nil)  {
+//            return false
+//        } else {
+//            return true
+//        }
+        if productNameTextField.text == "" {
+            Alert.showEmptyProductNameTextField(on: self)
+//            return false
+        }
+        else if calcButtonsNumber.isEmpty || calcButtonsNumber == "0" {
 
+            guard Double(calcButtonsNumber) == nil else { return Alert.showInvalidNumberForPrice(on: self)}
+            Alert.showInvalidNumberForPrice(on: self)
+////            return false
+        }
+         else if let calcDouble = calcButtonsNumber.doubleValue {
+            print(calcDouble)
+            Alert.showInvalidNumberForPrice(on: self)
+            
+        } else {
+            self.dismiss(animated: true, completion: nil)
+//            return true
+        }
+        
+        
+    }
+    
+}
+
+
+extension String {
+     struct NumFormatter {
+         static let instance = NumberFormatter()
+     }
+
+     var doubleValue: Double? {
+         return NumFormatter.instance.number(from: self)?.doubleValue
+     }
+
+     var integerValue: Int? {
+         return NumFormatter.instance.number(from: self)?.intValue
+     }
 }
