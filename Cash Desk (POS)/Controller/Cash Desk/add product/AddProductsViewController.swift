@@ -11,12 +11,17 @@ import UIKit
 class AddProductsViewController: UIViewController {
     
     
-    var calcButtonsNumber = 0
+    var calcButtonsNumber: String = "" {
+        didSet {
+            priceLabel.text = "\(calcButtonsNumber)"
+        }
+    }
     
+    
+    //MARK: - outlets
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var backgourndView: UIView!
     @IBOutlet weak var productNameTextField: UITextField!
-    
     
     @IBOutlet var Buttons: [UIButton]!
     
@@ -49,29 +54,49 @@ class AddProductsViewController: UIViewController {
             
         case "0":
             print("0")
+            calcButtonsNumber.append("0")
         case "1":
             print("1")
+            calcButtonsNumber.append("1")
         case "2":
             print("2")
+            calcButtonsNumber.append("2")
         case "3":
             print("3")
+            calcButtonsNumber.append("3")
         case "4":
             print("4")
+            calcButtonsNumber.append("4")
         case "5":
             print("5")
+            calcButtonsNumber.append("5")
         case "6":
             print("6")
+            calcButtonsNumber.append("6")
         case "7":
             print("7")
+            calcButtonsNumber.append("7")
         case "8":
             print("8")
+            calcButtonsNumber.append("8")
         case "9":
             print("9")
+            calcButtonsNumber.append("9")
         case "⏎":
             print("⏎")
             self.dismiss(animated: true, completion: nil)
         case "←":
             print("←")
+            calcButtonsNumber = String(calcButtonsNumber.dropLast())
+        case ".":
+            
+            if !calcButtonsNumber.contains("."){
+                calcButtonsNumber.append(".")
+                print(".")
+            } else {
+                print("a number is only able to hold one point...")
+                Alert.showOnlyOnePointInNumberAlert(on: self)
+            }
         default:
             print("not all calc buttons of the addProduct alert are supported,, please double check the conections")
             

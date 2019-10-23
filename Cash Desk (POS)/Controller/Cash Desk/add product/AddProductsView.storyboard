@@ -45,17 +45,41 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ad5-CM-UE6">
                                         <rect key="frame" x="50" y="203.5" width="437" height="414.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-wc-Xq2">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="wB7-MR-FHJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="437" height="65"/>
-                                                <color key="backgroundColor" name="WhiteIsh"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-wc-Xq2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="65" id="03g-Iz-MGy"/>
+                                                            <constraint firstAttribute="width" constant="355" id="4pd-tz-aea"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                                        <color key="textColor" name="DarkBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKf-P6-cLr">
+                                                        <rect key="frame" x="362" y="0.0" width="75" height="65"/>
+                                                        <color key="backgroundColor" name="WhiteIsh"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="QmU-YO-hB1"/>
+                                                            <constraint firstAttribute="height" constant="65" id="yow-gS-064"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
+                                                        <state key="normal" title="⏎">
+                                                            <color key="titleColor" name="DarkBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calcButtonsFunc:" destination="ud4-Ub-nwc" eventType="touchUpInside" id="Ub5-4x-pt5"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="437" id="0l7-Wh-CiW"/>
-                                                    <constraint firstAttribute="height" constant="65" id="jRj-8k-iFf"/>
+                                                    <constraint firstAttribute="width" constant="437" id="0t5-dY-moD"/>
+                                                    <constraint firstAttribute="height" constant="65" id="eU4-qc-Q7W"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
-                                                <color key="textColor" name="DarkBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-eX-5sf">
                                                 <rect key="frame" x="0.0" y="95" width="437" height="86.5"/>
                                                 <subviews>
@@ -259,7 +283,7 @@
                                                             <constraint firstAttribute="height" constant="86.5" id="vWQ-eM-AN9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="59"/>
-                                                        <state key="normal" title="⏎">
+                                                        <state key="normal" title=".">
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
@@ -322,6 +346,7 @@
                         <outletCollection property="Buttons" destination="7SD-LE-ZJZ" collectionClass="NSMutableArray" id="zFS-YP-aLO"/>
                         <outletCollection property="Buttons" destination="kNG-ig-Zje" collectionClass="NSMutableArray" id="IJJ-jO-D1x"/>
                         <outletCollection property="Buttons" destination="DPI-sS-tgr" collectionClass="NSMutableArray" id="7nx-pR-gGJ"/>
+                        <outletCollection property="Buttons" destination="jKf-P6-cLr" collectionClass="NSMutableArray" id="BEZ-yv-y3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjp-Jy-XZN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
