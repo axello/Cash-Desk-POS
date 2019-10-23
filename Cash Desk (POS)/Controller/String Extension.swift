@@ -20,4 +20,8 @@ extension String {
      var integerValue: Int? {
          return NumFormatter.instance.number(from: self)?.intValue
      }
+    
+    var floatValue: Float? {
+        return NumFormatter.instance.number(from: self)?.floatValue
+    }
 }
