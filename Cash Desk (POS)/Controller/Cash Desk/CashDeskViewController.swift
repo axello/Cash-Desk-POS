@@ -10,15 +10,7 @@ import UIKit
 import CoreData
 
 
-struct testColectionViewCellData {
-    let  productName: String
-    let price: String
-}
-struct testTableViewCellData {
-    let amount: String
-    let  price: String
-    let   name: String
-}
+
 
 
 class CashDeskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -137,8 +129,6 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
         allProductsColectionView.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
-    
-   
     
     fileprivate func resetCalcButtonNumberAndLabel() {
         calcButtonsNumber = ""
@@ -285,6 +275,10 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.setUpCell(productName: allProductsArray[indexPath.row].productName ?? "problem by productName", price: allProductsArray[indexPath.row].productPrice ?? "problems by productPrice")
         
         return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
 
