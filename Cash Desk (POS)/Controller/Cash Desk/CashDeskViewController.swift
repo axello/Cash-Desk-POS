@@ -37,7 +37,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var allProductsArray = [AllProducts]()
     
-   
+    var shoppingCart = [ShoppingCartData]()
     
     //MARK: - test data for colection and table view's
     //    var testDataForCelcetionCell = [
@@ -129,7 +129,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     fileprivate func resetCalcButtonNumberAndLabel() {
         calcButtonsNumber = ""
-        calcButtonsTextLabel.text = "0.0"
+        calcButtonsTextLabel.text = ""
     }
     
     
@@ -193,12 +193,12 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         case "⏎":
             print("⏎")
             if discountOrCustomPrise.isOn == true {
-                testDataForTableViewCell.insert(testTableViewCellData(amount: "1 x", price: calcButtonsTextLabel.text ?? "problems on line 189", name: "Custom product"), at: 0)
+                shoppingCart.insert(ShoppingCartData(productName: "custom product or price", productPrice: calcButtonsNumber), at: 0)
                 
                 resetCalcButtonNumberAndLabel()
                 TableView.reloadData()
             } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 194")) %")
+                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 201")) %")
                 resetCalcButtonNumberAndLabel()
             }
         case "←":
@@ -224,13 +224,16 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testDataForTableViewCell.count
+        return shoppingCart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! ShoppingCartTableViewCell
         
-        cell.setUpCell(productName: testDataForTableViewCell[indexPath.row].name, amount: testDataForTableViewCell[indexPath.row].amount, price: "€ \(testDataForTableViewCell[indexPath.row].price)")
+//        cell.setUpCell(productName: testDataForTableViewCell[indexPath.row].name, amount: testDataForTableViewCell[indexPath.row].amount, price: "€ \(testDataForTableViewCell[indexPath.row].price)")
+        
+        cell.setUpCell(productName: shoppingCart[indexPath.row].productName, amount: "", price: shoppingCart[indexPath.row].productPrice)
+        
         cell.selectionStyle = .default
         
         if cell.isSelected == true {
@@ -277,6 +280,10 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        shoppingCart.insert(ShoppingCartData(productName: allProductsArray[indexPath.row].productName ?? "problems by didSelectItemAt 'productName'" , productPrice: allProductsArray[indexPath.row].productPrice ?? "problems by didSelectItemAt 'productPrice'"), at: 0)
+        
+        print("appended")
+        TableView.reloadData()
     }
 
 }

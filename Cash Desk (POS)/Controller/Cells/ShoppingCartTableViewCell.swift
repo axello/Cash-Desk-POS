@@ -27,11 +27,12 @@ class ShoppingCartTableViewCell: UITableViewCell {
         
     }
     
-    func setUpCell(productName: String?, amount: String?, price: String?) {
+    func setUpCell(productName: String, amount: String?, price: String) {
         // cell text setup
         productNameLabel.text = productName
         amountLabel.text      = amount
-        priceLabel.text       = price
+        priceLabel.text       = "€\(String(describing: price))"
+        
         BackgroundViews.layer.cornerRadius = 20
         
         designSetUp()
