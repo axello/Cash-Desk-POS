@@ -21,7 +21,8 @@ struct testTableViewCellData {
     let name: String
 }
 
-struct shoppingCartData {
+/// This struct holds the bluePrint for a shoppingCart tableViewCell
+struct ShoppingCartData {
     
     let productName: String
     let productPrice: String

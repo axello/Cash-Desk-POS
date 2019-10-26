@@ -20,11 +20,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var allProductsColectionView: UICollectionView!
     @IBOutlet var CalcButtons: [UIButton]!
-    
     @IBOutlet weak var calcButtonsTextLabel: UILabel!
-    
     @IBOutlet weak var discountOrCustomPrise: UISwitch!
-    
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var mainBackgroundView: UIView!
     
@@ -40,7 +37,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var allProductsArray = [AllProducts]()
     
-    
+   
     
     //MARK: - test data for colection and table view's
     //    var testDataForCelcetionCell = [
