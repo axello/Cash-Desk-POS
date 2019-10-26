@@ -24,17 +24,6 @@ struct testTableViewCellData {
 class CashDeskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var calcButtonsNumber: String = "" {
-        didSet {
-            calcButtonsTextLabel.text = "\(calcButtonsNumber)"
-            print("\(String(describing: calcButtonsTextLabel.text!))")
-        }
-    }
-    
-    var allProductsArray = [AllProducts]()
-    
     //MARK: - outlets
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var allProductsColectionView: UICollectionView!
@@ -47,19 +36,33 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var mainBackgroundView: UIView!
     
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var calcButtonsNumber: String = "" {
+        didSet {
+            calcButtonsTextLabel.text = "\(calcButtonsNumber)"
+            print("\(String(describing: calcButtonsTextLabel.text!))")
+        }
+    }
+    
+    var allProductsArray = [AllProducts]()
+    
+    
+    
     //MARK: - test data for colection and table view's
-//    var testDataForCelcetionCell = [
-//        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
-//        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
-//        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
-//        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
-//        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
-//        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
-//        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
-//        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
-//        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
-//        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
-//    ]
+    //    var testDataForCelcetionCell = [
+    //        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
+    //        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
+    //        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
+    //        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
+    //        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
+    //        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
+    //        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
+    //        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
+    //        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
+    //        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
+    //    ]
     var testDataForTableViewCell = [
         testTableViewCellData(amount: "25", price: "51.46", name: "potato"),
         testTableViewCellData(amount: "25", price: "51.46", name: "beaf"),

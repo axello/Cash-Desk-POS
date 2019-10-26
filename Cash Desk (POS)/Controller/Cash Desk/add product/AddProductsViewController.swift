@@ -11,6 +11,12 @@ import CoreData
 
 class AddProductsViewController: UIViewController {
     
+    //MARK: - outlets
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var backgourndView: UIView!
+    @IBOutlet weak var productNameTextField: UITextField!
+    @IBOutlet var Buttons: [UIButton]!
+    
     
     var calcButtonsNumber: String = "" {
         didSet {
@@ -22,13 +28,10 @@ class AddProductsViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
     
+    
    
     
-    //MARK: - outlets
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var backgourndView: UIView!
-    @IBOutlet weak var productNameTextField: UITextField!
-    @IBOutlet var Buttons: [UIButton]!
+ 
     
     
     override func viewDidLoad() {
