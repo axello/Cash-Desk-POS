@@ -24,6 +24,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var discountOrCustomPrise: UISwitch!
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var mainBackgroundView: UIView!
+    @IBOutlet weak var totalPriceToPayLabel: UILabel!
     
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -35,9 +36,18 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    var totalPriceToPay: Double = 0 {
+        didSet {
+            
+            totalPriceToPayLabel.text = "€\(totalPriceToPay)"
+        }
+    }
+
     var allProductsArray = [AllProducts]()
     
-    var shoppingCart = [ShoppingCartData]()
+    
+    
+    var shoppingCart = [ShoppingCartData]() 
     
     //MARK: - test data for colection and table view's
     //    var testDataForCelcetionCell = [
@@ -68,6 +78,9 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        totalPriceToPayLabel.textColor = Color.POSBlue
+        totalPriceToPayLabel.text = "€0.0"
         
         TableViewSetUp()
         ColectionViewSetUp()
@@ -131,6 +144,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         calcButtonsNumber = ""
         calcButtonsTextLabel.text = ""
     }
+    
     
     
     //MARK: - data methods
@@ -199,6 +213,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
                 TableView.reloadData()
             } else {
                 print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 201")) %")
+                
                 resetCalcButtonNumberAndLabel()
             }
         case "←":
@@ -249,7 +264,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = TableView.cellForRow(at: indexPath) as? ShoppingCartTableViewCell
         cell?.designSetUp( backgroundColor: Color.POSOrange)
         
-        let alert = UIAlertController(title: "Tableview row number: \(indexPath.row + 1)", message: "product name: \(testDataForTableViewCell[indexPath.row].name)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Tableview row number: \(indexPath.row + 1)", message: "product name: \(shoppingCart[indexPath.row].productName)", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Ok", style: .cancel) { (AlertAction) in
             self.TableView.deselectRow(at: indexPath, animated: true)
@@ -284,6 +299,36 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
         print("appended")
         TableView.reloadData()
-    }
+        #warning("make the below code work")
+        // TODO: - make this work
+//        var totalPrice: Double = 0
+//        for placeNumber in 0...shoppingCart.count {
+//            let doubleNumber = Double(shoppingCart[placeNumber].productPrice) ?? 0.0
+//            let roundedDoubleNumber = Double.roundDouble(numberToRound: doubleNumber, roundNumberWith: 2)
+//
+//            totalPrice += roundedDoubleNumber
+//        }
+//
+//        if totalPrice != totalPriceToPay {
+//            totalPriceToPay += totalPrice
+//        }
+//    }
 
 }
+
+
+//fileprivate func updateTotalPriceToPay() {
+//    if shoppingCart.isEmpty == false {
+//        var totalPrice: Double = 0
+//        for placeNumber in 0...shoppingCart.count {
+//            let doubleNumber = Double(shoppingCart[placeNumber].productPrice) ?? 0.0
+//            let roundedDoubleNumber = Double.roundDouble(numberToRound: doubleNumber, roundNumberWith: 2)
+//
+//            totalPrice += roundedDoubleNumber
+//        }
+//
+//        if totalPrice != totalPriceToPay {
+//            totalPriceToPay += totalPrice
+//        }
+//    }
+//}
