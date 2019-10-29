@@ -115,13 +115,7 @@ class AddProductsViewController: UIViewController {
         if productNameTextField.text == "" {
             Alert.showEmptyProductNameTextField(on: self)
         }
-        else if calcButtonsNumber.isEmpty || calcButtonsNumber == "0" {
-
-            guard Double(calcButtonsNumber) == nil else { return Alert.showInvalidNumberForPrice(on: self)}
-            Alert.showInvalidNumberForPrice(on: self)
-        }
-         else if let calcDouble = calcButtonsNumber.doubleValue {
-            print(calcDouble)
+        else if  calcButtonsNumber == "" {
             Alert.showInvalidNumberForPrice(on: self)
             
         } else {

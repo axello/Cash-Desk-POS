@@ -299,20 +299,21 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
         print("appended")
         TableView.reloadData()
-        #warning("make the below code work")
+//        #warning("make the below code work")
         // TODO: - make this work
-//        var totalPrice: Double = 0
-//        for placeNumber in 0...shoppingCart.count {
+        var totalPrice: Double = 0
+        for placeNumber in 0...shoppingCart.count {
+            print(placeNumber)
 //            let doubleNumber = Double(shoppingCart[placeNumber].productPrice) ?? 0.0
 //            let roundedDoubleNumber = Double.roundDouble(numberToRound: doubleNumber, roundNumberWith: 2)
 //
 //            totalPrice += roundedDoubleNumber
-//        }
-//
+        }
+
 //        if totalPrice != totalPriceToPay {
 //            totalPriceToPay += totalPrice
 //        }
-//    }
+    }
 
 }
 
