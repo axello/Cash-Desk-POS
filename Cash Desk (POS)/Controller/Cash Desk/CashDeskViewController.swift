@@ -45,42 +45,19 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var allProductsArray = [AllProducts]()
     
-    
+    var timer: Timer?
     
     var shoppingCart = [ShoppingCartData]() 
     
-    //MARK: - test data for colection and table view's
-    //    var testDataForCelcetionCell = [
-    //        testColectionViewCellData(productName: "potato"                          ,price: "51.46"),
-    //        testColectionViewCellData(productName: "beaf"                            ,price: "51.46"),
-    //        testColectionViewCellData(productName: "iPad"                            ,price: "51.46"),
-    //        testColectionViewCellData(productName: "iPhone"                          ,price: "52.06"),
-    //        testColectionViewCellData(productName: "bike"                            ,price: "53.06"),
-    //        testColectionViewCellData(productName: "tomato"                          ,price: "55.06"),
-    //        testColectionViewCellData(productName: "egg"                             ,price: "55.06"),
-    //        testColectionViewCellData(productName: "icecream"                        ,price: "24.58"),
-    //        testColectionViewCellData(productName: "stake"                           ,price: "75.99"),
-    //        testColectionViewCellData(productName: "MacBook Pro 13\" 265GB 16GB RAM" ,price: "10.50")
-    //    ]
-    var testDataForTableViewCell = [
-        testTableViewCellData(amount: "25", price: "51.46", name: "potato"),
-        testTableViewCellData(amount: "25", price: "51.46", name: "beaf"),
-        testTableViewCellData(amount: "25", price: "51.46", name: "iPad"),
-        testTableViewCellData(amount: "25", price: "52.06", name: "iPhone"),
-        testTableViewCellData(amount: "25", price: "53.06", name: "bike"),
-        testTableViewCellData(amount: "25", price: "55.06", name: "tomato"),
-        testTableViewCellData(amount: "25", price: "55.06", name: "egg"),
-        testTableViewCellData(amount: "25", price: "24.58", name: "icecream"),
-        testTableViewCellData(amount: "25", price: "10.50", name: "MacBook Pro 13\" 265GB 16GB RAM"),
-        testTableViewCellData(amount: "25", price: "75.99", name: "stake")
-        
-    ]
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         totalPriceToPayLabel.textColor = Color.POSBlue
         totalPriceToPayLabel.text = "€0.0"
+         
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
         
         TableViewSetUp()
         ColectionViewSetUp()
@@ -122,6 +99,9 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         TableView.dataSource = self
         
         TableView.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
+        
+        
+        
     }
     fileprivate func ColectionViewSetUp() {
         // setting colectionView designs
@@ -137,6 +117,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         allProductsColectionView.dataSource = self
         
         
+        
+        
         allProductsColectionView.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
     
@@ -149,14 +131,16 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //MARK: - data methods
     
-    func loadData(){
+   @objc func loadData(){
         let request: NSFetchRequest<AllProducts> = AllProducts.fetchRequest()
+        
         do {
             allProductsArray = try context.fetch(request)
         } catch {
             print("error Loading data: \(error)")
         }
-        //tableView.reloadData()
+        allProductsColectionView.reloadData()
+        
         print("tableView Reloaded")
     }
     
@@ -235,6 +219,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
             //            self.loadData()
             
         })
+        
     }
     
     // MARK: - Table View Methods

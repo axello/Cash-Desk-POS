@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E150E9A234A693900ED2661 /* testFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E150E99234A693900ED2661 /* testFile.swift */; };
 		6E150E9D234B9C0C00ED2661 /* AddProductAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E150E9C234B9C0C00ED2661 /* AddProductAlertService.swift */; };
 		6E150E9F234B9C5B00ED2661 /* AddProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E150E9E234B9C5B00ED2661 /* AddProductsView.storyboard */; };
 		6E150EA1234B9C9C00ED2661 /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E150EA0234B9C9C00ED2661 /* AddProductsViewController.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E150E99234A693900ED2661 /* testFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testFile.swift; sourceTree = "<group>"; };
 		6E150E9C234B9C0C00ED2661 /* AddProductAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductAlertService.swift; sourceTree = "<group>"; };
 		6E150E9E234B9C5B00ED2661 /* AddProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProductsView.storyboard; sourceTree = "<group>"; };
 		6E150EA0234B9C9C00ED2661 /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			children = (
 				6EC3A777232EBD6200607514 /* Cash Desk (POS) */,
 				6EC3A776232EBD6200607514 /* Products */,
-				6E150E99234A693900ED2661 /* testFile.swift */,
 				6E6774C82365D3E60003478B /* testingThings.playground */,
 			);
 			sourceTree = "<group>";
@@ -197,7 +194,7 @@
 		6EC3A76D232EBD6200607514 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Benji Mandel";
 				TargetAttributes = {
@@ -207,7 +204,7 @@
 				};
 			};
 			buildConfigurationList = 6EC3A770232EBD6200607514 /* Build configuration list for PBXProject "Cash Desk (POS)" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -250,7 +247,6 @@
 				6E150EA1234B9C9C00ED2661 /* AddProductsViewController.swift in Sources */,
 				6EE3F2E92337D18F00FBA8E2 /* ShoppingCartTableViewCell.swift in Sources */,
 				6E6774C72364D97D0003478B /* Structs.swift in Sources */,
-				6E150E9A234A693900ED2661 /* testFile.swift in Sources */,
 				6E58C9EE2332BA5600673DFF /* AllProductsCollectionViewCell.swift in Sources */,
 				6E150E9D234B9C0C00ED2661 /* AddProductAlertService.swift in Sources */,
 				6E9E92C12360539C001E4CB4 /* String Extension.swift in Sources */,
@@ -336,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
