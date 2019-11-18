@@ -24,7 +24,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var discountOrCustomPrise: UISwitch!
     @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var mainBackgroundView: UIView!
-    @IBOutlet weak var totalPriceToPayLabel: UILabel!
+    @IBOutlet var totalPriceToPayLabel: UILabel!
     
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -45,6 +45,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var allProductsArray = [AllProducts]()
     
+    
     var timer: Timer?
     
     var shoppingCart = [ShoppingCartData]() 
@@ -54,10 +55,10 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        totalPriceToPayLabel.textColor = Color.POSBlue
-        totalPriceToPayLabel.text = "€0.0"
+        totalPriceToPayLabel?.textColor = Color.POSBlue
+        totalPriceToPayLabel?.text = "€0.0"
          
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
         
         TableViewSetUp()
         ColectionViewSetUp()
@@ -70,16 +71,16 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     fileprivate func backgroundViewsSetUp() {
         // setting backgroundViews layout
-        backgroundViews.forEach {
+        backgroundViews?.forEach {
             $0.layer.cornerRadius    = 20
             $0.layer.backgroundColor = Color.POSWhite.cgColor
         }
         
-        mainBackgroundView.backgroundColor = Color.POSLightBlue
+        mainBackgroundView?.backgroundColor = Color.POSLightBlue
     }
     fileprivate func buttonsSetUp() {
         // setting calc buttons layout
-        CalcButtons.forEach {
+        CalcButtons?.forEach {
             $0.layer.borderWidth     = 5
             $0.layer.cornerRadius    = 25
             $0.layer.borderColor     = Color.POSOrange.cgColor
@@ -88,38 +89,38 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     fileprivate func TableViewSetUp() {
         // setting table view designs
-        TableView.backgroundColor     =  Color.POSLightBlue
-        TableView.layer.cornerRadius  = 25
-        TableView.layer.borderWidth   = 5
-        TableView.layer.borderColor   = Color.POSOrange.cgColor
-        TableView.contentInset.top    = 10
-        TableView.separatorStyle = .none
+        TableView?.backgroundColor     =  Color.POSLightBlue
+        TableView?.layer.cornerRadius  = 25
+        TableView?.layer.borderWidth   = 5
+        TableView?.layer.borderColor   = Color.POSOrange.cgColor
+        TableView?.contentInset.top    = 10
+        TableView?.separatorStyle = .none
         
-        TableView.delegate   = self
-        TableView.dataSource = self
+        TableView?.delegate   = self
+        TableView?.dataSource = self
         
-        TableView.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
+        TableView?.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
         
         
         
     }
     fileprivate func ColectionViewSetUp() {
         // setting colectionView designs
-        allProductsColectionView.backgroundColor    =  Color.POSLightBlue
-        allProductsColectionView.layer.cornerRadius = 25
-        allProductsColectionView.layer.borderWidth  = 5
-        allProductsColectionView.layer.borderColor  = Color.POSOrange.cgColor
-        allProductsColectionView.contentInset.top   = 10
-        allProductsColectionView.contentInset.left  = 15
-        allProductsColectionView.contentInset.right = 15
+        allProductsColectionView?.backgroundColor    =  Color.POSLightBlue
+        allProductsColectionView?.layer.cornerRadius = 25
+        allProductsColectionView?.layer.borderWidth  = 5
+        allProductsColectionView?.layer.borderColor  = Color.POSOrange.cgColor
+        allProductsColectionView?.contentInset.top   = 10
+        allProductsColectionView?.contentInset.left  = 15
+        allProductsColectionView?.contentInset.right = 15
         
-        allProductsColectionView.delegate   = self
-        allProductsColectionView.dataSource = self
-        
-        
+        allProductsColectionView?.delegate   = self
+        allProductsColectionView?.dataSource = self
         
         
-        allProductsColectionView.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
+        
+        
+        allProductsColectionView?.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
     
     fileprivate func resetCalcButtonNumberAndLabel() {
@@ -139,7 +140,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         } catch {
             print("error Loading data: \(error)")
         }
-        allProductsColectionView.reloadData()
+        allProductsColectionView?.reloadData()
         
         print("tableView Reloaded")
     }
@@ -196,7 +197,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
                 resetCalcButtonNumberAndLabel()
                 TableView.reloadData()
             } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line 201")) %")
+                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line \(#line) on file \(#file)")) %")
                 
                 resetCalcButtonNumberAndLabel()
             }
@@ -212,12 +213,12 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func AddProductsBarButtonPressed(_ sender: UIBarButtonItem) {
-        
+      
         let alertVC = AddProductAlertService.alert()
         
         present(alertVC, animated: true, completion: {
-            //            self.loadData()
-            
+            self.loadData()
+//            self.timer?.invalidate()
         })
         
     }
@@ -230,9 +231,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! ShoppingCartTableViewCell
         
-//        cell.setUpCell(productName: testDataForTableViewCell[indexPath.row].name, amount: testDataForTableViewCell[indexPath.row].amount, price: "€ \(testDataForTableViewCell[indexPath.row].price)")
-        
-        cell.setUpCell(productName: shoppingCart[indexPath.row].productName, amount: "", price: shoppingCart[indexPath.row].productPrice)
+        cell.setUpCell(productName: shoppingCart[indexPath.row].productName, amount: "\(shoppingCart[indexPath.row].quantity)", price: shoppingCart[indexPath.row].productPrice)
         
         cell.selectionStyle = .default
         
@@ -272,32 +271,52 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allProductsCell", for: indexPath) as! AllProductsCollectionViewCell
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressColectionView))
+
+        
+        cell.addGestureRecognizer(longPressGesture)
+        
         cell.setUpCell(productName: allProductsArray[indexPath.row].productName ?? "problem by productName", price: allProductsArray[indexPath.row].productPrice ?? "problems by productPrice")
+        
         
         return cell
         
     }
     
+    @objc private func longPressColectionView(recognizer: UILongPressGestureRecognizer) {
+        guard let indexPath = allProductsColectionView.indexPathForItem(at: recognizer.location(in: allProductsColectionView)) else { return }
+      print(indexPath)
+        print("long gesture detected")
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete this product?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (DeleteFunctionality) in
+            self.context.delete(self.allProductsArray[indexPath.item])
+            self.allProductsArray.remove(at: indexPath.item)
+            self.save()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        present(alert, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        shoppingCart.insert(ShoppingCartData(productName: allProductsArray[indexPath.row].productName ?? "problems by didSelectItemAt 'productName'" , productPrice: allProductsArray[indexPath.row].productPrice ?? "problems by didSelectItemAt 'productPrice'"), at: 0)
-        
+        if let index = shoppingCart.firstIndex(where: { $0.productName == allProductsArray[indexPath.row].productName && $0.productPrice == allProductsArray[indexPath.row].productPrice }) {
+          shoppingCart[index].quantity += 1
+        } else {
+          let data = ShoppingCartData(productName: allProductsArray[indexPath.row].productName ?? "problems by didSelectItemAt 'productName'" , productPrice: allProductsArray[indexPath.row].productPrice ?? "problems by didSelectItemAt 'productPrice'", quantity: 1)
+          shoppingCart.insert(data, at: 0)
+        }
+//        print("out of for in and if else blocks")
         print("appended")
         TableView.reloadData()
-//        #warning("make the below code work")
-        // TODO: - make this work
         var totalPrice: Double = 0
-        for placeNumber in 0...shoppingCart.count {
-            print(placeNumber)
-//            let doubleNumber = Double(shoppingCart[placeNumber].productPrice) ?? 0.0
-//            let roundedDoubleNumber = Double.roundDouble(numberToRound: doubleNumber, roundNumberWith: 2)
+        
+//        for number in 0 ... shoppingCart.count {
 //
-//            totalPrice += roundedDoubleNumber
-        }
-
-//        if totalPrice != totalPriceToPay {
-//            totalPriceToPay += totalPrice
+//            totalPrice += Double(shoppingCart[number].productPrice) ?? 1
+//            totalPrice = Double.roundDouble(numberToRound: totalPrice, roundNumberWith: 2)
 //        }
+        
     }
 
 }
@@ -317,4 +336,30 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
 //            totalPriceToPay += totalPrice
 //        }
 //    }
+//}
+
+
+
+
+
+//if !shoppingCart.isEmpty {
+//    for productNr in 0 ..< allProductsArray.count {
+//        print("productNr: \(productNr)")
+//        if  allProductsArray[productNr].productName == shoppingCart[productNr].productName{
+//            print("does containd")
+//            shoppingCart[productNr].quantity += 1
+//            TableView.reloadData()
+//            break
+//        } else {
+//            print("doesntContain")
+//            shoppingCart.insert(ShoppingCartData(productName: allProductsArray[indexPath.row].productName ?? "problems by didSelectItemAt 'productName'" , productPrice: allProductsArray[indexPath.row].productPrice ?? "problems by didSelectItemAt 'productPrice'", quantity: 1), at: 0)
+//            TableView.reloadData()
+//        }
+//
+//
+//    }
+//
+//} else if shoppingCart.isEmpty {
+//    shoppingCart.insert(ShoppingCartData(productName: allProductsArray[indexPath.row].productName ?? "problems by didSelectItemAt 'productName'" , productPrice: allProductsArray[indexPath.row].productPrice ?? "problems by didSelectItemAt 'productPrice'", quantity: 1), at: 0)
+//    TableView.reloadData()
 //}

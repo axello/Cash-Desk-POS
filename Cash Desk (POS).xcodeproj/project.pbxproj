@@ -122,9 +122,9 @@
 				6EC3A77E232EBD6200607514 /* SecondViewController.swift */,
 				6EE3F2DB2337A3F200FBA8E2 /* enum's.swift */,
 				6E9E92BE23604636001E4CB4 /* Alerts.swift */,
+				6E6774C62364D97D0003478B /* Structs.swift */,
 				6E9E92C02360539B001E4CB4 /* String Extension.swift */,
 				6E6774C92365D6E10003478B /* Double extension.swift */,
-				6E6774C62364D97D0003478B /* Structs.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

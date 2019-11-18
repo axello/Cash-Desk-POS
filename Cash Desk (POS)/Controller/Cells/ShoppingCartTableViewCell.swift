@@ -27,7 +27,7 @@ class ShoppingCartTableViewCell: UITableViewCell {
         
     }
     
-    func setUpCell(productName: String, amount: String?, price: String) {
+    func setUpCell(productName: String, amount: String? = "", price: String) {
         // cell text setup
         productNameLabel.text = productName
         amountLabel.text      = amount

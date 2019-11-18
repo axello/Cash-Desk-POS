@@ -10,9 +10,11 @@ import Foundation
 
 extension Double {
     
+    
     /// easily round doubles with this extension method
-    /// - Parameter number: the double you want to round
-    /// - Parameter roundWith: the number behind the decimal.
+    /// - Parameters:
+    ///   - numberToRound: The double you want to round
+    ///   - roundNumberWith: The amount of numbers behind the decimal.
     static func roundDouble( numberToRound: Double, roundNumberWith: Int) -> Double {
         
         let roundedNumberString = String(format:"%.\(roundNumberWith)f", numberToRound)

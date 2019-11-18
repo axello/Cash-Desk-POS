@@ -18,11 +18,14 @@ class AllProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var shadowView: UIView!
     
+    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress))
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+//        self.addGestureRecognizer(longPressGesture)
         
     }
     
@@ -42,5 +45,15 @@ class AllProductsCollectionViewCell: UICollectionViewCell {
         shadowView.layer.shadowOffset  = .zero
         shadowView.layer.shadowRadius  = 10
         shadowView.layer.shadowPath    = UIBezierPath(rect: shadowView.bounds).cgPath
+        
+        
+    }
+    
+    
+    @objc func didLongPress() {
+        
+        print("lomg gesture detected")
+        Alert.showColectionViewDataAlert(on: CashDeskViewController(), indexRow: 1, products: "2345678")
+        
     }
 }

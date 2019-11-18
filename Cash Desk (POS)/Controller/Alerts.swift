@@ -32,4 +32,10 @@ struct Alert {
         showBasicAlert(on: vc, title: "Invalide price.", message: "Please enter a valid number to continue.", actionTitle: "Ok")
     }
     
+    static func showColectionViewDataAlert(on vc: UIViewController, indexRow: Int, products: String) {
+        showBasicAlert(on: vc, title: "colectionViewData", message: "indexPath: \(indexRow), data: \(products)", actionTitle: "Ok")
+    }
+    
+   
+    
 }

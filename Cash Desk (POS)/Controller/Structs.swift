@@ -26,6 +26,6 @@ struct ShoppingCartData {
     
     let productName: String
     let productPrice: String
-//    let quantity: String
+    var quantity: Int = 0
     
 }
