@@ -13,7 +13,7 @@ class AddProductsViewController: UIViewController {
     
     //MARK: - outlets
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var backgourndView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet var Buttons: [UIButton]!
     
@@ -24,22 +24,16 @@ class AddProductsViewController: UIViewController {
         }
     }
     
+    var completion: (() -> Void)?
+    
     var allProductsArray = [AllProducts]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-   
-    
-    
-   
-    
- 
-    
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgourndView.backgroundColor = Color.POSLightBlue
+        backgroundView.backgroundColor = Color.POSLightBlue
         ButtonsSetUp()
-        
     }
     
     // MARK: - button methods
@@ -125,7 +119,10 @@ class AddProductsViewController: UIViewController {
             newProduct.productPrice = calcButtonsNumber
             
             save()
-            
+            // TODO: inform the presenting view controller to update!
+            if let completion = completion {
+                completion()
+            }
             self.dismiss(animated: true, completion: nil)
             
         }

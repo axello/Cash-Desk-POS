@@ -9,14 +9,11 @@
 import UIKit
 import CoreData
 
-
-
-
-
 class CashDeskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     //MARK: - outlets
+    // TODO: svp beginnen met kleine letters. Hoofdletters zijn voorbehouden aan Class, Struct en Enum definities.
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var allProductsColectionView: UICollectionView!
     @IBOutlet var CalcButtons: [UIButton]!
@@ -49,8 +46,6 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     var timer: Timer?
     
     var shoppingCart = [ShoppingCartData]() 
-    
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +53,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         totalPriceToPayLabel?.textColor = Color.POSBlue
         totalPriceToPayLabel?.text = "€0.0"
          
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
         
         TableViewSetUp()
         ColectionViewSetUp()
@@ -78,6 +73,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         
         mainBackgroundView?.backgroundColor = Color.POSLightBlue
     }
+    
     fileprivate func buttonsSetUp() {
         // setting calc buttons layout
         CalcButtons?.forEach {
@@ -87,6 +83,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
             $0.layer.backgroundColor = Color.POSLightBlue.cgColor
         }
     }
+    
     fileprivate func TableViewSetUp() {
         // setting table view designs
         TableView?.backgroundColor     =  Color.POSLightBlue
@@ -100,10 +97,9 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         TableView?.dataSource = self
         
         TableView?.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
-        
-        
-        
     }
+    
+    // TODO: svp functions beginnen ook met een kleine letter!
     fileprivate func ColectionViewSetUp() {
         // setting colectionView designs
         allProductsColectionView?.backgroundColor    =  Color.POSLightBlue
@@ -117,9 +113,6 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         allProductsColectionView?.delegate   = self
         allProductsColectionView?.dataSource = self
         
-        
-        
-        
         allProductsColectionView?.register(UINib(nibName: "allProductsColectionViewCell", bundle: nil), forCellWithReuseIdentifier: "allProductsCell")
     }
     
@@ -127,8 +120,6 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         calcButtonsNumber = ""
         calcButtonsTextLabel.text = ""
     }
-    
-    
     
     //MARK: - data methods
     
@@ -158,66 +149,45 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - button pressed methods
     @IBAction func CalcButtonsPressed(_ sender: UIButton) {
 
-        switch sender.currentTitle {
-        case "0":
-            print("0")
-            calcButtonsNumber.append("0")
-        case "1":
-            print("1")
-            calcButtonsNumber.append("1")
-        case "2":
-            print("2")
-            calcButtonsNumber.append("2")
-        case "3":
-            print("3")
-            calcButtonsNumber.append("3")
-        case "4":
-            print("4")
-            calcButtonsNumber.append("4")
-        case "5":
-            print("5")
-            calcButtonsNumber.append("5")
-        case "6":
-            print("6")
-            calcButtonsNumber.append("6")
-        case "7":
-            print("7")
-            calcButtonsNumber.append("7")
-        case "8":
-            print("8")
-            calcButtonsNumber.append("8")
-        case "9":
-            print("9")
-            calcButtonsNumber.append("9")
-        case "⏎":
-            print("⏎")
-            if discountOrCustomPrise.isOn == true {
-                shoppingCart.insert(ShoppingCartData(productName: "custom product or price", productPrice: calcButtonsNumber), at: 0)
+        if let title = sender.currentTitle, let number = Int(title) {
+            // user tapped a number key
+            let numStr = String(number)
+            print(numStr)
+            calcButtonsNumber.append(numStr)
+        } else {
+            switch sender.currentTitle {
+            case "⏎":
+                print("⏎")
+                if discountOrCustomPrise.isOn == true {
+                    shoppingCart.insert(ShoppingCartData(productName: "custom product or price", productPrice: calcButtonsNumber), at: 0)
+                    
+                    resetCalcButtonNumberAndLabel()
+                    TableView.reloadData()
+                } else {
+                    print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line \(#line) on file \(#file)")) %")
+                    
+                    resetCalcButtonNumberAndLabel()
+                }
+            case "←":
+                print("←")
+                calcButtonsNumber = String(calcButtonsNumber.dropLast())
                 
-                resetCalcButtonNumberAndLabel()
-                TableView.reloadData()
-            } else {
-                print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line \(#line) on file \(#file)")) %")
-                
-                resetCalcButtonNumberAndLabel()
+            case .none:
+                print("problem with the app, please contact the developer")
+            case .some(_):
+                print(".some")
             }
-        case "←":
-            print("←")
-            calcButtonsNumber = String(calcButtonsNumber.dropLast())
-            
-        case .none:
-            print("problem with the app, please contact the developer")
-        case .some(_):
-            print(".some")
         }
     }
     
     @IBAction func AddProductsBarButtonPressed(_ sender: UIBarButtonItem) {
       
-        let alertVC = AddProductAlertService.alert()
-        
-        present(alertVC, animated: true, completion: {
+        let alertVC = AddProductAlertService.alert {
             self.loadData()
+        }
+                
+        present(alertVC, animated: true, completion: {
+//            self.loadData()
 //            self.timer?.invalidate()
         })
         
