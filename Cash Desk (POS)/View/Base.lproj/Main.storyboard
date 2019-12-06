@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,26 +13,26 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CashDeskViewController" customModule="POS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1V6-Od-WGl">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Cash Desk" id="zAX-Wn-fFc">
                                         <barButtonItem key="rightBarButtonItem" title="Add Product" id="PlU-oE-BNr">
                                             <connections>
-                                                <action selector="AddProductsBarButtonPressed:" destination="9pv-A4-QxB" id="CzP-R9-QwO"/>
+                                                <action selector="addProductsBarButtonPressed:" destination="9pv-A4-QxB" id="CzP-R9-QwO"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HE9-WH-ylZ">
-                                <rect key="frame" x="12" y="62" width="490" height="335"/>
+                                <rect key="frame" x="12" y="56" width="490" height="173"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-zJ-RRj">
-                                        <rect key="frame" x="12" y="12" width="466" height="269"/>
+                                        <rect key="frame" x="12" y="12" width="466" height="107"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="78" id="BdS-lg-tJc" customClass="ShoppingCartTableViewCell" customModule="POS" customModuleProvider="target">
@@ -82,7 +80,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wbJ-3u-086">
-                                        <rect key="frame" x="10" y="286" width="470" height="41"/>
+                                        <rect key="frame" x="10" y="124" width="470" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4O-vG-vk1">
                                                 <rect key="frame" x="0.0" y="0.0" width="167" height="41"/>
@@ -120,10 +118,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0u-Hd-x5M">
-                                <rect key="frame" x="522" y="62" width="490" height="656"/>
+                                <rect key="frame" x="522" y="56" width="66" height="495"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wLq-LY-ifv">
-                                        <rect key="frame" x="12" y="12" width="466" height="632"/>
+                                        <rect key="frame" x="12" y="12" width="42" height="471"/>
                                         <color key="backgroundColor" name="lightBlue"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YPe-lg-TLI">
                                             <size key="itemSize" width="130" height="107"/>
@@ -133,7 +131,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="allProductsCell" id="9UZ-Kq-sLi" customClass="AllProductsCollectionViewCell" customModule="POS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="200"/>
+                                                <rect key="frame" x="-83.5" y="0.0" width="209" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="t6j-QM-tTZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="209" height="200"/>
@@ -179,10 +177,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-06-QXz">
-                                <rect key="frame" x="12" y="405" width="490" height="313"/>
+                                <rect key="frame" x="12" y="237" width="490" height="314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nd1-Wn-iET">
-                                        <rect key="frame" x="26.5" y="6" width="437" height="298.5"/>
+                                        <rect key="frame" x="26.5" y="6.5" width="437" height="298.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-Zj-oHg">
                                                 <rect key="frame" x="0.0" y="0.0" width="437" height="30"/>
@@ -255,7 +253,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="VuK-cV-e0L"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="VuK-cV-e0L"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgN-0N-9NR">
@@ -270,7 +268,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6a0-ba-UFE"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6a0-ba-UFE"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ht5-4n-Y4k">
@@ -284,7 +282,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="XqG-ik-sTO"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="XqG-ik-sTO"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVL-Qf-iUy">
@@ -299,7 +297,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="C4C-wM-o1G"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="C4C-wM-o1G"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -324,7 +322,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="32s-nn-Zcm"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="32s-nn-Zcm"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="303-bu-9yu">
@@ -339,7 +337,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="XDc-Lb-jiJ"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="XDc-Lb-jiJ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-7B-UcO">
@@ -354,7 +352,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Obg-hj-ULg"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Obg-hj-ULg"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0S-Ea-NyG">
@@ -369,7 +367,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zhW-90-XTU"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zhW-90-XTU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -398,7 +396,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p7W-sT-GAg"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p7W-sT-GAg"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzD-7B-EgZ">
@@ -413,7 +411,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="aa8-Da-gpG"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="aa8-Da-gpG"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPU-Sg-5b4">
@@ -428,7 +426,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Bor-qN-Y8G"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Bor-qN-Y8G"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8g-hb-fU6">
@@ -443,7 +441,7 @@
                                                             <color key="titleColor" name="DarkBlue"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="CalcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bMy-4H-Hfv"/>
+                                                            <action selector="calcButtonsPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bMy-4H-Hfv"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -492,27 +490,27 @@
                         <color key="badgeColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="TableView" destination="DcH-zJ-RRj" id="yom-1E-7Gw"/>
                         <outlet property="allProductsColectionView" destination="wLq-LY-ifv" id="lZJ-VQ-5O1"/>
                         <outlet property="calcButtonsTextLabel" destination="mCf-75-rGs" id="rBt-NL-4iA"/>
                         <outlet property="discountOrCustomPrise" destination="6kZ-RC-o0a" id="vI6-kc-bfn"/>
                         <outlet property="mainBackgroundView" destination="tsR-hK-woN" id="l6C-xZ-QSW"/>
+                        <outlet property="shoppingCartTableView" destination="DcH-zJ-RRj" id="yom-1E-7Gw"/>
                         <outlet property="totalPriceToPayLabel" destination="ANv-4m-MBa" id="Nq9-5W-7Mw"/>
-                        <outletCollection property="CalcButtons" destination="sTX-V2-xHD" collectionClass="NSMutableArray" id="kxc-kj-2tz"/>
-                        <outletCollection property="CalcButtons" destination="bgN-0N-9NR" collectionClass="NSMutableArray" id="ceQ-hA-u1Y"/>
-                        <outletCollection property="CalcButtons" destination="ht5-4n-Y4k" collectionClass="NSMutableArray" id="26S-OU-Fqv"/>
-                        <outletCollection property="CalcButtons" destination="ccQ-H3-Hq0" collectionClass="NSMutableArray" id="4ih-7C-EJf"/>
-                        <outletCollection property="CalcButtons" destination="303-bu-9yu" collectionClass="NSMutableArray" id="YGx-dB-t4i"/>
-                        <outletCollection property="CalcButtons" destination="Sbc-7B-UcO" collectionClass="NSMutableArray" id="uEO-t3-MQT"/>
-                        <outletCollection property="CalcButtons" destination="d0S-Ea-NyG" collectionClass="NSMutableArray" id="PeW-3r-pHc"/>
-                        <outletCollection property="CalcButtons" destination="GEh-r2-Zef" collectionClass="NSMutableArray" id="jeo-rv-zww"/>
-                        <outletCollection property="CalcButtons" destination="QzD-7B-EgZ" collectionClass="NSMutableArray" id="tyc-M2-l04"/>
-                        <outletCollection property="CalcButtons" destination="PPU-Sg-5b4" collectionClass="NSMutableArray" id="Xrx-r2-XL6"/>
+                        <outletCollection property="calcButtons" destination="sTX-V2-xHD" collectionClass="NSMutableArray" id="kxc-kj-2tz"/>
+                        <outletCollection property="calcButtons" destination="bgN-0N-9NR" collectionClass="NSMutableArray" id="ceQ-hA-u1Y"/>
+                        <outletCollection property="calcButtons" destination="ht5-4n-Y4k" collectionClass="NSMutableArray" id="26S-OU-Fqv"/>
+                        <outletCollection property="calcButtons" destination="ccQ-H3-Hq0" collectionClass="NSMutableArray" id="4ih-7C-EJf"/>
+                        <outletCollection property="calcButtons" destination="303-bu-9yu" collectionClass="NSMutableArray" id="YGx-dB-t4i"/>
+                        <outletCollection property="calcButtons" destination="Sbc-7B-UcO" collectionClass="NSMutableArray" id="uEO-t3-MQT"/>
+                        <outletCollection property="calcButtons" destination="d0S-Ea-NyG" collectionClass="NSMutableArray" id="PeW-3r-pHc"/>
+                        <outletCollection property="calcButtons" destination="GEh-r2-Zef" collectionClass="NSMutableArray" id="jeo-rv-zww"/>
+                        <outletCollection property="calcButtons" destination="QzD-7B-EgZ" collectionClass="NSMutableArray" id="tyc-M2-l04"/>
+                        <outletCollection property="calcButtons" destination="PPU-Sg-5b4" collectionClass="NSMutableArray" id="Xrx-r2-XL6"/>
                         <outletCollection property="backgroundViews" destination="HE9-WH-ylZ" collectionClass="NSMutableArray" id="Ye5-EX-OP3"/>
                         <outletCollection property="backgroundViews" destination="e0u-Hd-x5M" collectionClass="NSMutableArray" id="sr9-BT-2r7"/>
                         <outletCollection property="backgroundViews" destination="ifH-06-QXz" collectionClass="NSMutableArray" id="kp1-cz-D6y"/>
-                        <outletCollection property="CalcButtons" destination="b8g-hb-fU6" collectionClass="NSMutableArray" id="cru-iv-wVE"/>
-                        <outletCollection property="CalcButtons" destination="DVL-Qf-iUy" collectionClass="NSMutableArray" id="Wfj-O5-x1u"/>
+                        <outletCollection property="calcButtons" destination="b8g-hb-fU6" collectionClass="NSMutableArray" id="cru-iv-wVE"/>
+                        <outletCollection property="calcButtons" destination="DVL-Qf-iUy" collectionClass="NSMutableArray" id="Wfj-O5-x1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -524,17 +522,17 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="POS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Sold items" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="431.5" y="362.5" width="161" height="43"/>
+                                <rect key="frame" x="219.5" y="278.5" width="161" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="464.5" y="413.5" width="95" height="17"/>
+                                <rect key="frame" x="252.5" y="329.5" width="95" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>

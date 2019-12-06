@@ -13,10 +13,10 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     //MARK: - outlets
-    // TODO: svp beginnen met kleine letters. Hoofdletters zijn voorbehouden aan Class, Struct en Enum definities.
-    @IBOutlet weak var TableView: UITableView!
+    
+    @IBOutlet weak var shoppingCartTableView: UITableView!
     @IBOutlet weak var allProductsColectionView: UICollectionView!
-    @IBOutlet var CalcButtons: [UIButton]!
+    @IBOutlet var calcButtons: [UIButton]!
     @IBOutlet weak var calcButtonsTextLabel: UILabel!
     @IBOutlet weak var discountOrCustomPrise: UISwitch!
     @IBOutlet var backgroundViews: [UIView]!
@@ -55,8 +55,8 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
          
 //        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
         
-        TableViewSetUp()
-        ColectionViewSetUp()
+        tableViewSetUp()
+        colectionViewSetUp()
         backgroundViewsSetUp()
         buttonsSetUp()
         loadData()
@@ -76,7 +76,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     fileprivate func buttonsSetUp() {
         // setting calc buttons layout
-        CalcButtons?.forEach {
+        calcButtons?.forEach {
             $0.layer.borderWidth     = 5
             $0.layer.cornerRadius    = 25
             $0.layer.borderColor     = Color.POSOrange.cgColor
@@ -84,23 +84,23 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    fileprivate func TableViewSetUp() {
+    fileprivate func tableViewSetUp() {
         // setting table view designs
-        TableView?.backgroundColor     =  Color.POSLightBlue
-        TableView?.layer.cornerRadius  = 25
-        TableView?.layer.borderWidth   = 5
-        TableView?.layer.borderColor   = Color.POSOrange.cgColor
-        TableView?.contentInset.top    = 10
-        TableView?.separatorStyle = .none
+        shoppingCartTableView?.backgroundColor     =  Color.POSLightBlue
+        shoppingCartTableView?.layer.cornerRadius  = 25
+        shoppingCartTableView?.layer.borderWidth   = 5
+        shoppingCartTableView?.layer.borderColor   = Color.POSOrange.cgColor
+        shoppingCartTableView?.contentInset.top    = 10
+        shoppingCartTableView?.separatorStyle = .none
         
-        TableView?.delegate   = self
-        TableView?.dataSource = self
+        shoppingCartTableView?.delegate   = self
+        shoppingCartTableView?.dataSource = self
         
-        TableView?.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
+        shoppingCartTableView?.register(UINib(nibName: "ShoppingCartTableViewCell", bundle: nil), forCellReuseIdentifier: "TableCell")
     }
     
     // TODO: svp functions beginnen ook met een kleine letter!
-    fileprivate func ColectionViewSetUp() {
+    fileprivate func colectionViewSetUp() {
         // setting colectionView designs
         allProductsColectionView?.backgroundColor    =  Color.POSLightBlue
         allProductsColectionView?.layer.cornerRadius = 25
@@ -147,7 +147,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: - button pressed methods
-    @IBAction func CalcButtonsPressed(_ sender: UIButton) {
+    @IBAction func calcButtonsPressed(_ sender: UIButton) {
 
         if let title = sender.currentTitle, let number = Int(title) {
             // user tapped a number key
@@ -162,7 +162,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
                     shoppingCart.insert(ShoppingCartData(productName: "custom product or price", productPrice: calcButtonsNumber), at: 0)
                     
                     resetCalcButtonNumberAndLabel()
-                    TableView.reloadData()
+                    shoppingCartTableView.reloadData()
                 } else {
                     print("discount: \(String(describing: calcButtonsTextLabel.text ?? "problems on line \(#line) on file \(#file)")) %")
                     
@@ -180,7 +180,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    @IBAction func AddProductsBarButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addProductsBarButtonPressed(_ sender: UIBarButtonItem) {
       
         let alertVC = AddProductAlertService.alert {
             self.loadData()
@@ -215,13 +215,13 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = TableView.cellForRow(at: indexPath) as? ShoppingCartTableViewCell
+        let cell = shoppingCartTableView.cellForRow(at: indexPath) as? ShoppingCartTableViewCell
         cell?.designSetUp( backgroundColor: Color.POSOrange)
         
         let alert = UIAlertController(title: "Tableview row number: \(indexPath.row + 1)", message: "product name: \(shoppingCart[indexPath.row].productName)", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Ok", style: .cancel) { (AlertAction) in
-            self.TableView.deselectRow(at: indexPath, animated: true)
+            self.shoppingCartTableView.deselectRow(at: indexPath, animated: true)
             cell?.designSetUp(backgroundColor: Color.POSBlue)
         }
         
@@ -278,7 +278,7 @@ class CashDeskViewController: UIViewController, UITableViewDataSource, UITableVi
         }
 //        print("out of for in and if else blocks")
         print("appended")
-        TableView.reloadData()
+        shoppingCartTableView.reloadData()
         var totalPrice: Double = 0
         
 //        for number in 0 ... shoppingCart.count {
